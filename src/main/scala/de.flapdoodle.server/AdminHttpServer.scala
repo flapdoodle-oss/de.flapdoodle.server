@@ -5,6 +5,7 @@ import spray.routing.HttpService
 import spray.http.MediaTypes._
 import akka.io.IO
 import spray.can.Http
+import org.json4s.Formats
 
 class AdminHttpServerActor extends Actor with AdminHttpServerRoutes {
 
@@ -22,6 +23,7 @@ class AdminHttpServerActor extends Actor with AdminHttpServerRoutes {
   // other things here, like request stream processing
   // or timeout handling
   def receive = runRoute(adminRoutes)
+
 }
 
 object AdminHttpServerActor {

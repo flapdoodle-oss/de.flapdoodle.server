@@ -15,6 +15,7 @@ libraryDependencies ++= {
     "io.spray"            % "spray-httpx"     % sprayV,
     "io.spray"            %   "spray-testkit" % sprayV  % "test",
     "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
+    "nl.grons"            %% "metrics-scala" % "3.0.5_a2.3",
     "org.json4s"          %%  "json4s-native" % "3.2.6",
     "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
     "org.specs2"          %%  "specs2"        % "2.2.3" % "test"

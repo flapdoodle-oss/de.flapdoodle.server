@@ -1,7 +1,18 @@
 package de.flapdoodle.server
 
-import akka.actor.{ActorSystem, Props}
-import akka.io.IO
-import spray.can.Http
+import akka.actor.ActorSystem
 
-object Boot extends FlapdoodleServer(ActorSystem("Flapdoodle-Actor-System"))
+/**
+ * EXAMPLE
+ */
+object Boot extends FlapdoodleServer(ActorSystem("Flapdoodle-Actor-System")) with Instrumented {
+
+  // add gauge with scala metrics
+  metrics.gauge("myGauge")("1")
+
+  // add gauge with without instrumented prefix
+  def gauge = 777
+
+  Stats.metricRegistry.register("myGaugedd2", Stats.createGauge[Int](gauge))
+
+}

@@ -1,5 +1,6 @@
 package de.flapdoodle.server
 
+import de.flapdoodle.server.stats.JvmStats
 import java.lang.management.{ManagementFactory, RuntimeMXBean}
 import scala.collection.JavaConverters._
 
@@ -10,6 +11,8 @@ import com.codahale.metrics.Gauge
 object Stats {
   val runtime: RuntimeMXBean = ManagementFactory.getRuntimeMXBean
   val metricRegistry = new com.codahale.metrics.MetricRegistry()
+
+  JvmStats.register()
 
   def getRuntimeStats : JValue = ("runtime" ->
     ("name" -> runtime.getName) ~
